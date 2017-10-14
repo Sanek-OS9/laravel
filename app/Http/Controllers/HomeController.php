@@ -25,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        /*
         $tests = Test::all(); # получить весь список записей
         foreach ($tests AS $test) {
             //echo $test->name . '<br>';
@@ -35,14 +36,13 @@ class HomeController extends Controller
         $tests = Test::where('id', '>', 0)->take(1)->get();
         foreach ($tests AS $test) {
             echo $test->name . '<br>';
-        }
+        }*/
         //$affectedRows = Test::where('id', '>', 0)->update(['name' => 'testing']);
         /*
         echo '<pre>';
         print_r($tests);
         echo '</pre>';
         */
-        return;
 
         return view('home');
     }

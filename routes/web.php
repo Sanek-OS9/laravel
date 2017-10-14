@@ -18,3 +18,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/test', [
+    'as' => 'test', 
+    'uses' => 'HomeController@index', 
+    'roles' => ['Admin']
+])->middleware('roles');

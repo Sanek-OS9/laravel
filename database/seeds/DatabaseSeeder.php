@@ -13,19 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        $this->call('LibTableSeeder');
-        
+        $this->call(RoleTableSeeder::class);
+        $this->command->info('Таблица ролей загружена данными!');
+        $this->call(UserTableSeeder::class);
         $this->command->info('Таблица пользователей загружена данными!');
     }
 }
-class LibTableSeeder extends Seeder {
-    
-      public function run()
-      {
-        //DB::table('tests')->delete();
-    
-        Test::create(['name' => 'zazaza']);
-      }
-    
-    }
