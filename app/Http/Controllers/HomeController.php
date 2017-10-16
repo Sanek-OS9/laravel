@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Test;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException; # для работы с исключениями
 
 class HomeController extends Controller
@@ -43,7 +44,10 @@ class HomeController extends Controller
         print_r($tests);
         echo '</pre>';
         */
-
+        //$user = \Illuminate\Support\Facades\Auth::user();
+        //$user = \App\User::find(2);
+        //$user->roles()->detach(); // очистить роли
+        //dd($user);
         return view('home');
     }
 }

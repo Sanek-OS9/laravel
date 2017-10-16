@@ -13,13 +13,20 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/test', [
-    'as' => 'test', 
-    'uses' => 'HomeController@index', 
-    'roles' => ['Admin']
-])->middleware('roles');
+Route::group(['as' => 'profile::'], function() {
+    Route::get('/{user}/profile/edit/roles', [
+        'as' => 'edit',
+        'uses' => 'UserController@role_edit',
+        'roles' => ['Role', 'Admin'],
+    ])->middleware('roles');
+    Route::post('/{user}/profile/save/roles', [
+        'as' => 'save',
+        'uses' => 'UserController@role_save',
+        'roles' => ['Role', 'Admin'],
+        ])->middleware('roles');    
+});

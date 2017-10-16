@@ -15,15 +15,19 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
+        # гостей перенаправляем на страницу авторизации
         if ($request->user() === null) {
-            return response('У вас нет доступа', 401);
+            return redirect(route('login'));
         }
         $actions = $request->route()->getAction();
         $roles = isset($actions['roles']) ? $actions['roles'] : null;
-
+        # если в списке доступных ролей есть роль в которой состоит пользователь
+        # разрешаем доступ
         if ($request->user()->hasAnyRole($roles)) {
             return $next($request);
         }
-        return response('У вас нет доступа', 401);
+        # если подходящей роли нету
+        return redirect(route('main'));
+        //return response('У вас нет доступа', 401);
     }
 }

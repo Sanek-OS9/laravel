@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleTableSeeder::class);
         $this->command->info('Таблица ролей загружена данными!');
-        $this->call(UserTableSeeder::class);
-        $this->command->info('Таблица пользователей загружена данными!');
+        //$this->call(UserTableSeeder::class);
+        //$this->command->info('Таблица пользователей загружена данными!');
     }
 }

@@ -20,12 +20,20 @@ class RoleTableSeeder extends Seeder
         */
         $user = new Role;
         $user->name = 'Moder';
-        $user->description = 'Модератор';
+        $user->caption = 'Модератор';
+        $user->description = 'Помошник в управлении сайтом';
         $user->save();
 
         $user = new Role;
         $user->name = 'Admin';
-        $user->description = 'Администратор';
+        $user->caption = 'Администратор';
+        $user->description = 'Управляет сайтом';
+        $user->save();    
+
+        $user = new Role;
+        $user->name = 'Role';
+        $user->caption = 'Управляющий ролями';
+        $user->description = 'Назначет роли пользователям';
         $user->save();        
     }
 }
